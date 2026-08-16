@@ -281,6 +281,42 @@
 
 <div class="toast" id="toast"></div>
 
+<!-- ===== زر الانتقال للوحة التحكم (احذفه بعد الانتهاء) ===== -->
+<a href="index_manager.html" id="mgrFloatingBtn" title="لوحة التحكم">
+  <i class="fas fa-tools"></i>
+  <span>لوحة التحكم</span>
+</a>
+<style>
+  #mgrFloatingBtn {
+    position: fixed;
+    bottom: 5.5rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    padding: .65rem 1.25rem;
+    border-radius: 999px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: .88rem;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(245,158,11,.45);
+    z-index: 9990;
+    transition: transform .25s, box-shadow .25s;
+    animation: mgrPulse 2.5s infinite;
+  }
+  #mgrFloatingBtn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 28px rgba(245,158,11,.6);
+  }
+  @keyframes mgrPulse {
+    0%,100% { box-shadow: 0 4px 20px rgba(245,158,11,.45); }
+    50%      { box-shadow: 0 4px 32px rgba(245,158,11,.75); }
+  }
+</style>
+
 <script src="js/utils.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/animations.js"></script>
