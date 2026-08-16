@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حذيفة أحمد الميكي | مهندس تقنية معلومات</title>
+  <meta name="description" content="مهندس تقنية معلومات — مطور Laravel وFlutter وMySQL" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">ح.م</div>
+    <div class="loader-bar"><div class="loader-progress"></div></div>
+    <p class="loader-text">جاري التحميل...</p>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <span class="logo-icon">ح</span>
+      <span class="logo-text">حذيفة الميكي</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"       class="nav-link active" data-section="home">الرئيسية</a></li>
+      <li><a href="#about"      class="nav-link" data-section="about">عني</a></li>
+      <li><a href="#skills"     class="nav-link" data-section="skills">المهارات</a></li>
+      <li><a href="#projects"   class="nav-link" data-section="projects">المشاريع</a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">الخبرات</a></li>
+      <li><a href="#contact"    class="nav-link" data-section="contact">تواصل معي</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div><div class="shape shape-2"></div><div class="shape shape-3"></div>
+    </div>
+  </div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-badge reveal-up"><span class="badge-dot"></span> متاح للعمل</div>
+      <h1 class="hero-title reveal-up delay-1">
+        <span id="heroName">حذيفة أحمد الميكي</span><br/>
+        <span class="title-accent" id="heroTitle">مهندس تقنية معلومات</span>
+      </h1>
+      <div class="hero-role reveal-up delay-2">
+        <span class="role-prefix">أنا</span>
+        <span class="role-text" id="typedText"></span>
+        <span class="role-cursor">|</span>
+      </div>
+      <p class="hero-desc reveal-up delay-3" id="heroBio">مهندس تقنية معلومات متحفز...</p>
+      <div class="hero-actions reveal-up delay-4">
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> استعرض أعمالي</a>
+        <a href="#contact"  class="btn btn-outline"><i class="fas fa-envelope"></i> تواصل معي</a>
+      </div>
+      <div class="hero-socials reveal-up delay-5">
+        <a id="heroEmailLink" href="#" class="social-link" title="البريد"><i class="fas fa-envelope"></i></a>
+        <a id="heroLinkedIn"  href="#" class="social-link" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a id="heroPhoneLink" href="#" class="social-link" title="الهاتف"><i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+    <div class="hero-visual reveal-right delay-2">
+      <div class="profile-card">
+        <div class="profile-photo-wrapper">
+          <div class="profile-photo" id="profilePhoto">
+            <span class="profile-initials">ح.م</span>
+          </div>
+          <div class="profile-badge-award"><i class="fas fa-trophy"></i><span>درع الابتكار</span></div>
+        </div>
+        <div class="profile-card-info">
+          <div class="stat-item"><span class="stat-num" data-count="exp">0</span><span class="stat-label">سنوات خبرة</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num" data-count="proj">0</span><span class="stat-label">مشاريع</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num" data-count="aw">0</span><span class="stat-label">جوائز</span></div>
+        </div>
+      </div>
+      <div class="tech-orbit">
+        <div class="orbit-ring">
+          <div class="orbit-item" style="--i:0"><i class="fab fa-laravel"></i></div>
+          <div class="orbit-item" style="--i:1"><i class="fas fa-mobile-alt"></i></div>
+          <div class="orbit-item" style="--i:2"><i class="fab fa-php"></i></div>
+          <div class="orbit-item" style="--i:3"><i class="fas fa-database"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-down"><span>اكتشف المزيد</span><i class="fas fa-chevron-down"></i></a>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">من أنا</span>
+      <h2 class="section-title">نبذة <span class="accent">عني</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-image-col reveal-right">
+        <div class="about-image-card">
+          <div class="about-img-placeholder" id="aboutPhotoDisplay">
+            <span>حذيفة أحمد الميكي</span>
+          </div>
+          <div class="about-card-info">
+            <div class="info-row"><i class="fas fa-map-marker-alt"></i> <span id="aboutLocation">الرياض</span></div>
+            <div class="info-row"><i class="fas fa-graduation-cap"></i> بكالوريوس تقنية معلومات</div>
+            <div class="info-row"><i class="fas fa-university"></i> الجامعة الوطنية 2021–2025</div>
+            <div class="info-row"><i class="fas fa-trophy"></i> درع ابتكارات المستقبل 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text-col reveal-up">
+        <h3 class="about-subtitle" id="aboutTitle">مهندس تقنية معلومات</h3>
+        <p class="about-desc" id="aboutBio">...</p>
+        <div class="about-highlights">
+          <div class="highlight-item"><div class="highlight-icon"><i class="fas fa-code"></i></div><div><h4>تطوير متكامل</h4><p>خلفية وواجهة أمامية</p></div></div>
+          <div class="highlight-item"><div class="highlight-icon"><i class="fas fa-mobile-alt"></i></div><div><h4>تطبيقات موبايل</h4><p>Flutter & Android</p></div></div>
+          <div class="highlight-item"><div class="highlight-icon"><i class="fas fa-database"></i></div><div><h4>قواعد بيانات</h4><p>MySQL & RESTful APIs</p></div></div>
+          <div class="highlight-item"><div class="highlight-icon"><i class="fas fa-paint-brush"></i></div><div><h4>تصميم UI/UX</h4><p>Figma & تجربة المستخدم</p></div></div>
+        </div>
+        <div class="about-languages">
+          <div class="lang-item"><span>العربية</span><div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div><span>اللغة الأم</span></div>
+          <div class="lang-item"><span>الإنجليزية</span><div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div><span>جيد</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills section section-dark" id="skills">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">ما أتقنه</span>
+      <h2 class="section-title">المهارات <span class="accent">التقنية</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid" id="skillsGrid"><!-- يُبنى ديناميكياً --></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects section" id="projects">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">ما أنجزته</span>
+      <h2 class="section-title">ملف <span class="accent">الأعمال</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-filter reveal-up">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="web">ويب</button>
+      <button class="filter-btn" data-filter="mobile">موبايل</button>
+      <button class="filter-btn" data-filter="design">تصميم</button>
+    </div>
+    <div class="projects-grid" id="projectsGrid"><!-- يُبنى ديناميكياً --></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience section section-dark" id="experience">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">مسيرتي</span>
+      <h2 class="section-title">الخبرات <span class="accent">العملية</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline" id="timelineEl"><!-- يُبنى ديناميكياً --></div>
+    <div class="section-header reveal-up" style="margin-top:5rem">
+      <span class="section-tag">التعليم</span>
+      <h2 class="section-title">المسيرة <span class="accent">التعليمية</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="education-grid" id="educationGrid"><!-- يُبنى ديناميكياً --></div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards section" id="awards">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">الإنجازات</span>
+      <h2 class="section-title">الجوائز <span class="accent">والتكريمات</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="awards-grid" id="awardsGrid"><!-- يُبنى ديناميكياً --></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section section-dark" id="contact">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">تواصل</span>
+      <h2 class="section-title">تواصل <span class="accent">معي</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-right">
+        <div class="contact-card">
+          <a id="contactEmailLink" href="#" class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+            <div><h4>البريد الإلكتروني</h4><span id="contactEmail">—</span></div>
+          </a>
+          <a id="contactPhoneLink" href="#" class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+            <div><h4>الهاتف / واتساب</h4><span id="contactPhone">—</span></div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div><h4>الموقع</h4><span id="contactLocation">—</span></div>
+          </div>
+          <a id="contactLinkedIn" href="#" target="_blank" class="contact-item">
+            <div class="contact-item-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div><h4>LinkedIn</h4><span>hothifa-al-molukey</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-wrapper reveal-up">
+        <form class="contact-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label>الاسم</label><input type="text" placeholder="اسمك" required /></div>
+            <div class="form-group"><label>البريد</label><input type="email" placeholder="email@..." required /></div>
+          </div>
+          <div class="form-group"><label>الموضوع</label><input type="text" placeholder="موضوع رسالتك" required /></div>
+          <div class="form-group"><label>الرسالة</label><textarea rows="5" placeholder="اكتب رسالتك..." required></textarea></div>
+          <button type="submit" class="btn btn-primary w-full"><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand"><span class="logo-icon">ح</span> <span id="footerName">حذيفة أحمد الميكي</span></div>
+      <p class="footer-tagline" id="footerTitle">مهندس تقنية معلومات</p>
+      <div class="footer-socials">
+        <a id="heroEmailLink2" href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+        <a id="footerLinkedIn" href="#" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p class="footer-copy">© 2025 حذيفة أحمد الميكي — جميع الحقوق محفوظة</p>
+    </div>
+  </div>
+</footer>
+
+<!-- VIEW MODAL (عرض تفاصيل المشروع مع معرض صور) -->
+<div class="modal-overlay" id="viewModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeViewModal()"><i class="fas fa-times"></i></button>
+    <div id="viewModalContent"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/viewer.js"></script>
+</body>
+</html>

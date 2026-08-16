@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة التحكم | حذيفة الميكي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/manager.css" />
+</head>
+<body class="manager-mode">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo" style="font-size:1.5rem;color:var(--accent)"><i class="fas fa-tools"></i></div>
+    <div class="loader-bar"><div class="loader-progress"></div></div>
+    <p class="loader-text">تحميل لوحة التحكم...</p>
+  </div>
+</div>
+
+<!-- ===== MANAGER TOP BAR ===== -->
+<div class="mgr-topbar">
+  <div class="mgr-topbar-badge">
+    <i class="fas fa-tools"></i>
+    <span>وضع الإدارة</span>
+  </div>
+  <div class="mgr-topbar-actions">
+    <button class="mgr-topbar-btn primary" onclick="openProfileForm()">
+      <i class="fas fa-user-edit"></i><span>تعديل الملف الشخصي</span>
+    </button>
+    <a href="index.html" target="_blank" class="mgr-topbar-btn view-link">
+      <i class="fas fa-eye"></i><span>عرض الموقع</span>
+    </a>
+    <button class="mgr-topbar-btn danger" onclick="resetAllData()">
+      <i class="fas fa-undo"></i><span>إعادة الضبط</span>
+    </button>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <span class="logo-icon" style="background:var(--gradient-accent);">⚙</span>
+      <span class="logo-text">حذيفة الميكي — إدارة</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"       class="nav-link active" data-section="home">الرئيسية</a></li>
+      <li><a href="#about"      class="nav-link" data-section="about">عني</a></li>
+      <li><a href="#skills"     class="nav-link" data-section="skills">المهارات</a></li>
+      <li><a href="#projects"   class="nav-link" data-section="projects">المشاريع</a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">الخبرات</a></li>
+      <li><a href="#contact"    class="nav-link" data-section="contact">التواصل</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow glow-1"></div><div class="hero-glow glow-2"></div>
+    <div class="floating-shapes"><div class="shape shape-1"></div><div class="shape shape-2"></div><div class="shape shape-3"></div></div>
+  </div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-badge reveal-up"><span class="badge-dot"></span> متاح للعمل</div>
+      <h1 class="hero-title reveal-up delay-1">
+        <span id="heroName">حذيفة أحمد الميكي</span><br/>
+        <span class="title-accent" id="heroTitle">مهندس تقنية معلومات</span>
+      </h1>
+      <div class="hero-role reveal-up delay-2">
+        <span class="role-prefix">أنا</span>
+        <span class="role-text" id="typedText"></span>
+        <span class="role-cursor">|</span>
+      </div>
+      <p class="hero-desc reveal-up delay-3" id="heroBio">...</p>
+      <div class="hero-actions reveal-up delay-4">
+        <button class="btn btn-primary" onclick="openProfileForm()"><i class="fas fa-user-edit"></i> تعديل الملف الشخصي</button>
+        <a href="index.html" target="_blank" class="btn btn-outline"><i class="fas fa-eye"></i> معاينة الموقع</a>
+      </div>
+      <div class="hero-socials reveal-up delay-5">
+        <a id="heroEmailLink" href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+        <a id="heroLinkedIn"  href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a id="heroPhoneLink" href="#" class="social-link"><i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+    <div class="hero-visual reveal-right delay-2">
+      <div class="profile-card">
+        <div class="profile-photo-wrapper">
+          <div class="profile-photo" id="profilePhoto" style="cursor:pointer;" onclick="openProfileForm()" title="انقر لتغيير الصورة">
+            <span class="profile-initials">ح.م</span>
+          </div>
+          <div class="profile-badge-award"><i class="fas fa-tools"></i><span>وضع الإدارة</span></div>
+        </div>
+        <div class="profile-card-info">
+          <div class="stat-item"><span class="stat-num" data-count="exp">0</span><span class="stat-label">سنوات خبرة</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num" data-count="proj">0</span><span class="stat-label">مشاريع</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num" data-count="aw">0</span><span class="stat-label">جوائز</span></div>
+        </div>
+      </div>
+      <div class="tech-orbit">
+        <div class="orbit-ring">
+          <div class="orbit-item" style="--i:0"><i class="fab fa-laravel"></i></div>
+          <div class="orbit-item" style="--i:1"><i class="fas fa-mobile-alt"></i></div>
+          <div class="orbit-item" style="--i:2"><i class="fab fa-php"></i></div>
+          <div class="orbit-item" style="--i:3"><i class="fas fa-database"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-down"><span>اكتشف المزيد</span><i class="fas fa-chevron-down"></i></a>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">من أنا</span>
+      <h2 class="section-title">نبذة <span class="accent">عني</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-image-col reveal-right">
+        <div class="about-image-card">
+          <div class="about-img-placeholder" id="aboutPhotoDisplay" style="cursor:pointer;" onclick="openProfileForm()" title="انقر لتغيير الصورة">
+            <span>اضغط لتغيير الصورة</span>
+          </div>
+          <div class="about-card-info">
+            <div class="info-row"><i class="fas fa-map-marker-alt"></i> <span id="aboutLocation">الرياض</span></div>
+            <div class="info-row"><i class="fas fa-graduation-cap"></i> بكالوريوس تقنية معلومات</div>
+            <div class="info-row"><i class="fas fa-university"></i> الجامعة الوطنية 2021–2025</div>
+            <div class="info-row"><i class="fas fa-trophy"></i> درع ابتكارات المستقبل 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text-col reveal-up">
+        <h3 class="about-subtitle" id="aboutTitle">مهندس تقنية معلومات</h3>
+        <p class="about-desc" id="aboutBio">...</p>
+        <div class="about-highlights">
+          <div class="highlight-item"><div class="highlight-icon"><i class="fas fa-code"></i></div><div><h4>تطوير متكامل</h4><p>خلفية وواجهة أمامية</p></div></div>
+          <div class="highlight-item"><div class="highlight-icon"><i class="fas fa-mobile-alt"></i></div><div><h4>تطبيقات موبايل</h4><p>Flutter & Android</p></div></div>
+          <div class="highlight-item"><div class="highlight-icon"><i class="fas fa-database"></i></div><div><h4>قواعد بيانات</h4><p>MySQL & RESTful APIs</p></div></div>
+          <div class="highlight-item"><div class="highlight-icon"><i class="fas fa-paint-brush"></i></div><div><h4>تصميم UI/UX</h4><p>Figma & تجربة المستخدم</p></div></div>
+        </div>
+        <div class="about-languages">
+          <div class="lang-item"><span>العربية</span><div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div><span>اللغة الأم</span></div>
+          <div class="lang-item"><span>الإنجليزية</span><div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div><span>جيد</span></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <button class="btn btn-outline" onclick="openProfileForm()"><i class="fas fa-pen"></i> تعديل المعلومات الشخصية</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills section section-dark" id="skills">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">ما أتقنه</span>
+      <h2 class="section-title">المهارات <span class="accent">التقنية</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid" id="skillsGrid"><!-- يُبنى ديناميكياً --></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects section" id="projects">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">ما أنجزته</span>
+      <h2 class="section-title">ملف <span class="accent">الأعمال</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-filter reveal-up">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="web">ويب</button>
+      <button class="filter-btn" data-filter="mobile">موبايل</button>
+      <button class="filter-btn" data-filter="design">تصميم</button>
+    </div>
+    <div class="projects-grid" id="projectsGrid"><!-- يُبنى ديناميكياً --></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience section section-dark" id="experience">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">مسيرتي</span>
+      <h2 class="section-title">الخبرات <span class="accent">العملية</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline" id="timelineEl"><!-- يُبنى ديناميكياً --></div>
+    <div class="section-header reveal-up" style="margin-top:5rem">
+      <span class="section-tag">التعليم</span>
+      <h2 class="section-title">المسيرة <span class="accent">التعليمية</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="education-grid" id="educationGrid"><!-- يُبنى ديناميكياً --></div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards section" id="awards">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">الإنجازات</span>
+      <h2 class="section-title">الجوائز <span class="accent">والتكريمات</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="awards-grid" id="awardsGrid"><!-- يُبنى ديناميكياً --></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section section-dark" id="contact">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">تواصل</span>
+      <h2 class="section-title">معلومات <span class="accent">التواصل</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-right">
+        <div class="contact-card">
+          <a id="contactEmailLink" href="#" class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+            <div><h4>البريد الإلكتروني</h4><span id="contactEmail">—</span></div>
+          </a>
+          <a id="contactPhoneLink" href="#" class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+            <div><h4>الهاتف</h4><span id="contactPhone">—</span></div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div><h4>الموقع</h4><span id="contactLocation">—</span></div>
+          </div>
+          <a id="contactLinkedIn" href="#" target="_blank" class="contact-item">
+            <div class="contact-item-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div><h4>LinkedIn</h4><span>hothifa-al-molukey</span></div>
+          </a>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <button class="btn btn-outline w-full" onclick="openProfileForm()"><i class="fas fa-pen"></i> تعديل معلومات التواصل</button>
+        </div>
+      </div>
+      <div class="contact-form-wrapper reveal-up">
+        <div class="mgr-notice-bar">
+          <i class="fas fa-info-circle"></i>
+          نموذج التواصل يظهر للزوار فقط في صفحة index.html
+        </div>
+        <div class="contact-form" style="opacity:.5;pointer-events:none;">
+          <div class="form-row">
+            <div class="form-group"><label>الاسم</label><input type="text" placeholder="اسمك" /></div>
+            <div class="form-group"><label>البريد</label><input type="email" placeholder="email@..." /></div>
+          </div>
+          <div class="form-group"><label>الموضوع</label><input type="text" placeholder="موضوع رسالتك" /></div>
+          <div class="form-group"><label>الرسالة</label><textarea rows="4" placeholder="..."></textarea></div>
+          <button class="btn btn-primary w-full" disabled><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand"><span class="logo-icon">ح</span> <span id="footerName">حذيفة أحمد الميكي</span></div>
+      <p class="footer-tagline" id="footerTitle">مهندس تقنية معلومات</p>
+      <div class="footer-socials">
+        <a id="heroEmailLink2" href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+        <a id="footerLinkedIn" href="#" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p class="footer-copy">© 2025 حذيفة أحمد الميكي — لوحة التحكم</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     المودالات
+============================================================ -->
+
+<!-- عرض تفاصيل المشروع مع معرض صور -->
+<div class="modal-overlay" id="viewModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeViewModal()"><i class="fas fa-times"></i></button>
+    <div id="viewModalContent"></div>
+  </div>
+</div>
+
+<!-- فورم إضافة / تعديل مشروع -->
+<div class="modal-overlay mgr-form-modal" id="projectFormModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProjectForm()"><i class="fas fa-times"></i></button>
+    <h2 class="mgr-form-title" id="projFormTitle"><i class="fas fa-folder-plus"></i> إضافة مشروع</h2>
+    <form onsubmit="saveProjectForm(event)">
+      <div class="mgr-form-grid">
+        <div class="form-group full"><label>اسم المشروع *</label><input id="pfName" type="text" placeholder="اسم المشروع" required /></div>
+        <div class="form-group full"><label>وصف المشروع *</label><textarea id="pfDesc" rows="3" placeholder="وصف مختصر..."></textarea></div>
+        <div class="form-group"><label>التقنيات (مفصولة بفاصلة)</label><input id="pfTags" type="text" placeholder="Laravel, Flutter, MySQL" /></div>
+        <div class="form-group"><label>التصنيف</label>
+          <select id="pfCat">
+            <option value="web">ويب</option>
+            <option value="mobile">موبايل</option>
+            <option value="design">تصميم</option>
+            <option value="web mobile">ويب وموبايل</option>
+          </select>
+        </div>
+        <div class="form-group"><label>السنة</label><input id="pfYear" type="text" placeholder="2025" /></div>
+        <div class="form-group"><label>الجائزة (اختياري)</label><input id="pfAward" type="text" placeholder="درع ابتكار المستقبل..." /></div>
+        <div class="form-group full"><label>رابط المشروع (اختياري)</label><input id="pfUrl" type="url" placeholder="https://..." /></div>
+        <div class="form-group full">
+          <label>أبرز المميزات (كل ميزة في سطر)</label>
+          <textarea id="pfHighlights" rows="4" placeholder="ميزة أولى&#10;ميزة ثانية&#10;ميزة ثالثة"></textarea>
+        </div>
+
+        <!-- الصورة الرئيسية -->
+        <div class="form-group full">
+          <div class="gallery-section-label"><i class="fas fa-image"></i> الصورة الرئيسية للمشروع</div>
+          <div id="pfMainImgPreview"></div>
+        </div>
+
+        <!-- معرض الصور -->
+        <div class="form-group full">
+          <div class="gallery-section-label"><i class="fas fa-images"></i> معرض صور إضافية (Gallery)</div>
+          <div id="pfGalleryPreview"></div>
+          <p class="icon-hint" style="margin-top:.4rem;">يمكنك إضافة عدة صور. تظهر للزوار عند عرض تفاصيل المشروع بشكل معرض تفاعلي.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+        <button type="submit" class="btn btn-primary" style="flex:1"><i class="fas fa-save"></i> حفظ المشروع</button>
+        <button type="button" class="btn btn-outline" onclick="closeProjectForm()">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- فورم إضافة / تعديل مهارة -->
+<div class="modal-overlay mgr-form-modal" id="skillFormModal">
+  <div class="modal-box" style="max-width:500px">
+    <button class="modal-close" onclick="closeSkillForm()"><i class="fas fa-times"></i></button>
+    <h2 class="mgr-form-title" id="sfTitle"><i class="fas fa-code"></i> إضافة مهارة</h2>
+    <form onsubmit="saveSkillForm(event)">
+      <div class="form-group"><label>اسم المهارة *</label><input id="sfName" type="text" placeholder="Laravel & PHP" required /></div>
+      <div class="form-group"><label>الوصف</label><input id="sfDesc" type="text" placeholder="وصف مختصر للمهارة" /></div>
+      <div class="form-group">
+        <label>أيقونة Font Awesome</label>
+        <input id="sfIcon" type="text" placeholder="fab fa-laravel" oninput="updateIconPreview('sfIcon','sfIconPrev')" />
+        <div class="icon-hint">مثال: <code>fab fa-laravel</code> أو <code>fas fa-database</code></div>
+        <div class="icon-preview" id="sfIconPrev"><i class="fas fa-code"></i> معاينة الأيقونة</div>
+      </div>
+      <div class="form-group">
+        <label>نسبة الإتقان</label>
+        <div class="range-row">
+          <input id="sfPct" type="range" min="10" max="100" step="5" value="80" oninput="document.getElementById('sfPctVal').textContent=this.value+'%'" />
+          <span class="range-val" id="sfPctVal">80%</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+        <button type="submit" class="btn btn-primary" style="flex:1"><i class="fas fa-save"></i> حفظ</button>
+        <button type="button" class="btn btn-outline" onclick="closeSkillForm()">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- فورم إضافة / تعديل جائزة -->
+<div class="modal-overlay mgr-form-modal" id="awardFormModal">
+  <div class="modal-box" style="max-width:500px">
+    <button class="modal-close" onclick="closeAwardForm()"><i class="fas fa-times"></i></button>
+    <h2 class="mgr-form-title" id="afTitle"><i class="fas fa-trophy"></i> إضافة جائزة</h2>
+    <form onsubmit="saveAwardForm(event)">
+      <div class="form-group"><label>اسم الجائزة *</label><input id="afName" type="text" placeholder="درع التميز..." required /></div>
+      <div class="form-group"><label>الجهة المانحة</label><input id="afOrg" type="text" placeholder="الجامعة الوطنية" /></div>
+      <div class="form-group"><label>التاريخ</label><input id="afDate" type="text" placeholder="نوفمبر 2025" /></div>
+      <div class="form-group"><label>الوصف</label><textarea id="afDesc" rows="3" placeholder="وصف الجائزة..."></textarea></div>
+      <div class="form-group">
+        <label>أيقونة Font Awesome</label>
+        <input id="afIcon" type="text" placeholder="fa-trophy" oninput="updateIconPreview('afIcon','afIconPrev')" />
+        <div class="icon-preview" id="afIconPrev"><i class="fas fa-trophy"></i> معاينة</div>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+        <button type="submit" class="btn btn-primary" style="flex:1"><i class="fas fa-save"></i> حفظ</button>
+        <button type="button" class="btn btn-outline" onclick="closeAwardForm()">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- فورم إضافة / تعديل خبرة -->
+<div class="modal-overlay mgr-form-modal" id="expFormModal">
+  <div class="modal-box" style="max-width:560px">
+    <button class="modal-close" onclick="closeExpForm()"><i class="fas fa-times"></i></button>
+    <h2 class="mgr-form-title" id="efTitle"><i class="fas fa-briefcase"></i> إضافة خبرة</h2>
+    <form onsubmit="saveExpForm(event)">
+      <div class="mgr-form-grid">
+        <div class="form-group"><label>المسمى الوظيفي *</label><input id="efRole" type="text" required /></div>
+        <div class="form-group"><label>الشركة / الجهة</label><input id="efCompany" type="text" /></div>
+        <div class="form-group"><label>الفترة الزمنية</label><input id="efPeriod" type="text" placeholder="يناير 2024 – حتى الآن" /></div>
+        <div class="form-group" style="display:flex;align-items:center;gap:.75rem;padding-top:1.5rem;">
+          <input id="efCurrent" type="checkbox" style="width:18px;height:18px;cursor:pointer;" />
+          <label style="cursor:pointer;">الوظيفة الحالية</label>
+        </div>
+        <div class="form-group">
+          <label>أيقونة Font Awesome</label>
+          <input id="efIcon" type="text" placeholder="fa-briefcase" oninput="updateIconPreview('efIcon','efIconPrev')" />
+          <div class="icon-preview" id="efIconPrev"><i class="fas fa-briefcase"></i> معاينة</div>
+        </div>
+        <div class="form-group full">
+          <label>المهام والإنجازات (كل مهمة في سطر)</label>
+          <textarea id="efDuties" rows="5" placeholder="مهمة أولى&#10;مهمة ثانية"></textarea>
+        </div>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+        <button type="submit" class="btn btn-primary" style="flex:1"><i class="fas fa-save"></i> حفظ</button>
+        <button type="button" class="btn btn-outline" onclick="closeExpForm()">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- فورم إضافة / تعديل شهادة -->
+<div class="modal-overlay mgr-form-modal" id="eduFormModal">
+  <div class="modal-box" style="max-width:500px">
+    <button class="modal-close" onclick="closeEduForm()"><i class="fas fa-times"></i></button>
+    <h2 class="mgr-form-title" id="edTitle"><i class="fas fa-graduation-cap"></i> إضافة شهادة</h2>
+    <form onsubmit="saveEduForm(event)">
+      <div class="form-group"><label>اسم الشهادة / الدورة *</label><input id="edDegree" type="text" required /></div>
+      <div class="form-group"><label>الجهة / المؤسسة</label><input id="edInst" type="text" /></div>
+      <div class="form-group"><label>التاريخ</label><input id="edDate" type="text" placeholder="2021 – 2025" /></div>
+      <div class="form-group">
+        <label>أيقونة Font Awesome</label>
+        <input id="edIcon" type="text" placeholder="fa-graduation-cap" oninput="updateIconPreview('edIcon','edIconPrev')" />
+        <div class="icon-preview" id="edIconPrev"><i class="fas fa-graduation-cap"></i> معاينة</div>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+        <button type="submit" class="btn btn-primary" style="flex:1"><i class="fas fa-save"></i> حفظ</button>
+        <button type="button" class="btn btn-outline" onclick="closeEduForm()">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- فورم تعديل الملف الشخصي -->
+<div class="modal-overlay mgr-form-modal" id="profileFormModal">
+  <div class="modal-box" style="max-width:720px">
+    <button class="modal-close" onclick="closeProfileForm()"><i class="fas fa-times"></i></button>
+    <h2 class="mgr-form-title"><i class="fas fa-user-edit"></i> تعديل الملف الشخصي</h2>
+    <form onsubmit="saveProfileForm(event)">
+      <div class="mgr-form-grid">
+        <div class="form-group"><label>الاسم الكامل</label><input id="prfName" type="text" /></div>
+        <div class="form-group"><label>المسمى المهني</label><input id="prfTitle" type="text" /></div>
+        <div class="form-group full"><label>النبذة الشخصية</label><textarea id="prfBio" rows="4"></textarea></div>
+        <div class="form-group"><label>الموقع الجغرافي</label><input id="prfLocation" type="text" /></div>
+        <div class="form-group"><label>البريد الإلكتروني</label><input id="prfEmail" type="email" /></div>
+        <div class="form-group"><label>الهاتف</label><input id="prfPhone" type="tel" /></div>
+        <div class="form-group"><label>معرّف LinkedIn</label><input id="prfLinkedin" type="text" /></div>
+        <div class="form-group full">
+          <label>الأدوار المهنية (كل دور في سطر — تظهر في التأثير المتحرك)</label>
+          <textarea id="prfRoles" rows="4" placeholder="مطور ويب محترف&#10;مطور Flutter&#10;مصمم UI/UX"></textarea>
+        </div>
+        <div class="form-group"><label>سنوات الخبرة</label><input id="prfExpStat" type="number" min="0" /></div>
+        <div class="form-group"><label>عدد المشاريع</label><input id="prfProjStat" type="number" min="0" /></div>
+        <div class="form-group"><label>عدد الجوائز</label><input id="prfAwStat" type="number" min="0" /></div>
+        <div class="form-group">
+          <label>الصورة الشخصية (Hero)</label>
+          <input id="prfPhotoInput" type="file" accept="image/*" />
+        </div>
+        <div class="form-group">
+          <label>صورة قسم "عني"</label>
+          <input id="prfAboutPhotoInput" type="file" accept="image/*" />
+        </div>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+        <button type="submit" class="btn btn-primary" style="flex:1"><i class="fas fa-save"></i> حفظ التغييرات</button>
+        <button type="button" class="btn btn-outline" onclick="closeProfileForm()">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/manager.js"></script>
+<script>
+/* مساعد معاينة الأيقونة */
+function updateIconPreview(inputId, previewId) {
+  const val = document.getElementById(inputId).value.trim();
+  const prev = document.getElementById(previewId);
+  if (!prev) return;
+  // التأكد أن القيمة تحتوي على "fa" فقط
+  const cls = val.startsWith('fa') ? val : 'fas fa-' + val.replace('fa-','');
+  prev.innerHTML = `<i class="${cls}"></i> ${val || 'معاينة'}`;
+}
+</script>
+</body>
+</html>
