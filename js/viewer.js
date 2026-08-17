@@ -171,12 +171,16 @@ function buildContact(p) {
   setTxt('contactPhone', p.phone);
   setTxt('contactLocation', p.location);
   setHref('contactEmailLink', `mailto:${p.email}`);
+  setHref('heroEmailLink',    `mailto:${p.email}`);
   setHref('contactPhoneLink', `tel:${p.phone}`);
-  setHref('contactLinkedIn', `https://linkedin.com/in/${p.linkedin}`);
-  setHref('footerLinkedIn', `https://linkedin.com/in/${p.linkedin}`);
-  setHref('heroLinkedIn', `https://linkedin.com/in/${p.linkedin}`);
-  setHref('heroEmailLink', `mailto:${p.email}`);
-  setHref('heroPhoneLink', `tel:${p.phone}`);
+  setHref('heroPhoneLink',    `tel:${p.phone}`);
+  setHref('contactLinkedIn',  `https://linkedin.com/in/${p.linkedin}`);
+  setHref('footerLinkedIn',   `https://linkedin.com/in/${p.linkedin}`);
+  setHref('heroLinkedIn',     `https://linkedin.com/in/${p.linkedin}`);
+  if (p.github) {
+    const ghUrl = `https://github.com/${p.github}`;
+    document.querySelectorAll('a[href*="github.com"]').forEach(a => a.href = ghUrl);
+  }
   setTxt('footerName', p.name);
   setTxt('footerTitle', p.title);
 }

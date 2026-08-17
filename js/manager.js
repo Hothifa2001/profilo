@@ -213,12 +213,16 @@ function buildContact(p) {
   setTxt('contactPhone', p.phone);
   setTxt('contactLocation', p.location);
   setHref('contactEmailLink', `mailto:${p.email}`);
+  setHref('heroEmailLink',    `mailto:${p.email}`);
   setHref('contactPhoneLink', `tel:${p.phone}`);
-  setHref('contactLinkedIn', `https://linkedin.com/in/${p.linkedin}`);
-  setHref('footerLinkedIn', `https://linkedin.com/in/${p.linkedin}`);
-  setHref('heroLinkedIn', `https://linkedin.com/in/${p.linkedin}`);
-  setHref('heroEmailLink', `mailto:${p.email}`);
-  setHref('heroPhoneLink', `tel:${p.phone}`);
+  setHref('heroPhoneLink',    `tel:${p.phone}`);
+  setHref('contactLinkedIn',  `https://linkedin.com/in/${p.linkedin}`);
+  setHref('footerLinkedIn',   `https://linkedin.com/in/${p.linkedin}`);
+  setHref('heroLinkedIn',     `https://linkedin.com/in/${p.linkedin}`);
+  if (p.github) {
+    const ghUrl = `https://github.com/${p.github}`;
+    document.querySelectorAll('a[href*="github.com"]').forEach(a => a.href = ghUrl);
+  }
   setTxt('footerName', p.name);
   setTxt('footerTitle', p.title);
 }
@@ -665,6 +669,7 @@ function openProfileForm() {
   document.getElementById('prfEmail').value    = p.email;
   document.getElementById('prfPhone').value    = p.phone;
   document.getElementById('prfLinkedin').value = p.linkedin;
+  document.getElementById('prfGithub').value   = p.github || '';
   document.getElementById('prfExpStat').value  = p.stats.experience;
   document.getElementById('prfProjStat').value = p.stats.projects;
   document.getElementById('prfAwStat').value   = p.stats.awards;
@@ -688,6 +693,7 @@ async function saveProfileForm(e) {
   p.email    = document.getElementById('prfEmail').value.trim();
   p.phone    = document.getElementById('prfPhone').value.trim();
   p.linkedin = document.getElementById('prfLinkedin').value.trim();
+  p.github   = document.getElementById('prfGithub').value.trim();
   p.stats.experience = parseInt(document.getElementById('prfExpStat').value) || 0;
   p.stats.projects   = parseInt(document.getElementById('prfProjStat').value) || 0;
   p.stats.awards     = parseInt(document.getElementById('prfAwStat').value)   || 0;

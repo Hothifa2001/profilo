@@ -16,6 +16,7 @@ const DEFAULT_DATA = {
     email:    'hothifaalmolukey@gmail.com',
     phone:    '+966579489858',
     linkedin: 'hothifa-al-molukey-6l73831b4',
+    github:   'Hothifa2001',
     photo:    null,
     aboutPhoto: null,
     roles:    ['مطور ويب محترف', 'مطور Flutter', 'مصمم UI/UX', 'مبدع تقني'],

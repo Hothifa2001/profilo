@@ -97,15 +97,8 @@ body.manager-mode .navbar { top: 52px; }
   display: flex;
   gap: .35rem;
   z-index: 10;
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-*:hover > .mgr-card-actions,
-.timeline-content:hover .mgr-card-actions,
-.edu-card:hover .mgr-card-actions,
-.award-card:hover .mgr-card-actions {
   opacity: 1;
+  transition: opacity var(--transition);
 }
 
 .mgr-action-btn {
