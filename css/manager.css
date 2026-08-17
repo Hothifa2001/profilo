@@ -296,3 +296,54 @@ input[type="range"] {
   .mgr-form-grid { grid-template-columns: 1fr; }
   .mgr-form-grid .full { grid-column: 1; }
 }
+
+/* ---- شريط أزرار التعديل والحذف أسفل بطاقة المشروع ---- */
+.proj-mgr-bar {
+  display: flex;
+  gap: .6rem;
+  padding: .85rem 1.25rem;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,.15);
+}
+
+.proj-mgr-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  padding: .55rem .75rem;
+  border-radius: var(--radius-md);
+  font-size: .85rem;
+  font-weight: 700;
+  font-family: 'Cairo', sans-serif;
+  cursor: pointer;
+  border: 1px solid;
+  transition: var(--transition);
+}
+
+.proj-mgr-btn.edit {
+  background: rgba(14,165,233,.1);
+  border-color: rgba(14,165,233,.35);
+  color: var(--primary-light);
+}
+
+.proj-mgr-btn.edit:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.proj-mgr-btn.delete {
+  background: rgba(239,68,68,.08);
+  border-color: rgba(239,68,68,.3);
+  color: #f87171;
+}
+
+.proj-mgr-btn.delete:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: white;
+  transform: translateY(-1px);
+}
