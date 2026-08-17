@@ -108,10 +108,6 @@ function buildProjects(projects) {
     const galCount = (p.gallery || []).length;
     return `
       <article class="project-card reveal-up delay-${(i % 3) + 1}" data-category="${p.category}">
-        <div class="mgr-card-actions">
-          <button class="mgr-action-btn edit" onclick="openProjectForm('${p.id}')" title="تعديل"><i class="fas fa-pen"></i></button>
-          <button class="mgr-action-btn delete" onclick="deleteProject('${p.id}')" title="حذف"><i class="fas fa-trash"></i></button>
-        </div>
         <div class="project-image-wrapper">
           <div class="project-img">${img}</div>
           <div class="project-overlay">
@@ -263,6 +259,20 @@ function openViewModal(projId) {
         <i class="fas fa-calendar"></i> ${p.year}
       </span>
       ${urlBtn}
+    </div>
+    <div style="display:flex;gap:.75rem;margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--border);">
+      <button onclick="closeViewModal();openProjectForm('${p.id}')"
+        style="flex:1;display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1rem;border-radius:var(--radius-md);background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.35);color:var(--primary-light);font-family:Cairo,sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:.25s;"
+        onmouseover="this.style.background='var(--primary)';this.style.color='white';"
+        onmouseout="this.style.background='rgba(14,165,233,.12)';this.style.color='var(--primary-light)';">
+        <i class="fas fa-pen"></i> تعديل المشروع
+      </button>
+      <button onclick="if(confirm('هل أنت متأكد من حذف هذا المشروع؟')){closeViewModal();deleteProject('${p.id}')}"
+        style="flex:1;display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1rem;border-radius:var(--radius-md);background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);color:#f87171;font-family:Cairo,sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:.25s;"
+        onmouseover="this.style.background='var(--danger)';this.style.color='white';"
+        onmouseout="this.style.background='rgba(239,68,68,.08)';this.style.color='#f87171';">
+        <i class="fas fa-trash"></i> حذف المشروع
+      </button>
     </div>
   `;
 
